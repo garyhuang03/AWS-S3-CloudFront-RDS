@@ -1,0 +1,30 @@
+.td-buttons form {
+    display: inline-block;
+}
+
+img {
+    object-fit: cover;
+}
+
+h3 {
+    text-align: center;
+}
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-deck .card {
+    margin: 10px 10px;
+    /* border: 1px solid #666; */
+}
+
+.card-deck .card img {
+    object-fit: cover;
+}
+
+.card-deck .card .card-body .form-buttons form {
+    display: inline-block;
+}

@@ -1,0 +1,91 @@
+{% extends "bootstrap/base.html" %}
+{% block html_attribs %} lang = "en" {% endblock %}
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/style.css">
+{% endblock %}
+
+{% block title %}AWS S3 + CloudFront + RDS{% endblock %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-10-xs">
+                <h3>Gary's Personal Album</h3>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <p class="bg-info" style="padding: 15px;">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </p>
+                    {% endif %}
+                {% endwith %}
+                <hr>
+                <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+                    <p>圖片名稱 : <input type="text" name="file-name" required></p>
+                    <p><input type="file" name="file"></p>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </form>
+                <hr>
+                <div class="card-deck">
+                    {% for img in imgs %}
+                    <div class="card">
+                        <img class="card-img-top" src="https://do0ekvbuv8ir8.cloudfront.net/{{ img.key }}" width="240px" height="240px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ img.key }}</h5>
+                            <p class="card-text"><small class="text-muted">{{ img.last_modified | datetimeformat}}</small></p>
+                            <div class="form-buttons">
+                                <form class="download-form" action="{{ url_for('download') }}" method="post">
+                                    <input type="hidden" name="key" value="{{ img.key }}">
+                                    <button type="submit" class="btn btn-default btn-sm">
+                                        <i class="fa fa-download"></i>
+                                    </button>
+                                </form>
+                                <form class="delete-form" action="{{ url_for('delete') }}" method="post">
+                                    <input type="hidden" name="key" value="{{ img.key }}">
+                                    <button type="submit" class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash-alt"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- <table class="table table-striped">
+                    <tr>
+                        <th>Filename</th>
+                        <th></th>
+                    </tr>
+                    {% for img in imgs %}
+                    <tr>
+                        <td><img src="https://do0ekvbuv8ir8.cloudfront.net/{{ img.key }}" height="250px" width="250px"></td>
+                        <td class="td-buttons">
+                            <form class="delete-form" action="{{ url_for('delete') }}" method="post">
+                                <input type="hidden" name="key" value="{{ img.key }}">
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash-alt"></i>
+                                </button>
+                            </form>
+                            <form class="download-form" action="{{ url_for('download') }}" method="post">
+                                <input type="hidden" name="key" value="{{ img.key }}">
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <i class="fa fa-download"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table> -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
