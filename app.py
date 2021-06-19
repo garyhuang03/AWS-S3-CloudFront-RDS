@@ -1,11 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from flask_bootstrap import Bootstrap
 import boto3
-from config import S3_BUCKET
+from config import S3_BUCKET, S3_KEY, S3_SECRET_ACCESS_KEY
 import os
 from filters import *
 from db import Connect
 db = Connect()
+
+
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id = S3_KEY,
+    aws_secret_access_key = S3_SECRET_ACCESS_KEY
+)
 
 app = Flask(
     __name__,
