@@ -13,12 +13,10 @@ h3 {
 .card-deck {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .card-deck .card {
-    margin: 10px 10px;
-    /* border: 1px solid #666; */
+    margin: 25px 25px;
 }
 
 .card-deck .card img {

@@ -3,3 +3,4 @@ flask-bootstrap
 boto3
 python-dotenv
 arrow
+mysql.connector

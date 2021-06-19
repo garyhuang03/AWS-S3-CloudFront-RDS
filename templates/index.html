@@ -38,19 +38,19 @@
                 <div class="card-deck">
                     {% for img in imgs %}
                     <div class="card">
-                        <img class="card-img-top" src="https://do0ekvbuv8ir8.cloudfront.net/{{ img.key }}" width="240px" height="240px">
+                        <img class="card-img-top" src="{{ img[1] }}" width="240px" height="240px">
                         <div class="card-body">
-                            <h5 class="card-title">{{ img.key }}</h5>
-                            <p class="card-text"><small class="text-muted">{{ img.last_modified | datetimeformat}}</small></p>
+                            <h5 class="card-title">{{ img[0] | file_name }}</h5>
+                            <p class="card-text"><small class="text-muted">{{ img[2] | datetimeformat}}</small></p>
                             <div class="form-buttons">
                                 <form class="download-form" action="{{ url_for('download') }}" method="post">
-                                    <input type="hidden" name="key" value="{{ img.key }}">
+                                    <input type="hidden" name="key" value="{{ img[0] }}">
                                     <button type="submit" class="btn btn-default btn-sm">
                                         <i class="fa fa-download"></i>
                                     </button>
                                 </form>
                                 <form class="delete-form" action="{{ url_for('delete') }}" method="post">
-                                    <input type="hidden" name="key" value="{{ img.key }}">
+                                    <input type="hidden" name="key" value="{{ img[0] }}">
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <i class="fa fa-trash-alt"></i>
                                     </button>
