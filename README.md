@@ -14,7 +14,7 @@ AWS S3 + AWS CloudFront + AWS RDS 雲端服務整合 <br><br>
   - 利用 AWS Load Balancers 建立負載平衡架構 <br><br>
   <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/AWS-loader-balancers.png" width="740"/>
   
-  - Avg. Response Time：1753ms -> 477ms <br><br>
+  - Avg. Response Time：1753ms -> 477ms ( 使用 loader.io 測試 )<br><br>
   <div align="center">
     <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test.png" width="470"/>
     <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test-load-balance.png" width="470" height="318.406"/>
