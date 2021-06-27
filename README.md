@@ -16,6 +16,6 @@ AWS S3 + AWS CloudFront + AWS RDS 雲端服務整合 <br><br>
   
   - Avg. Response Time：1753ms -> 477ms ( 使用 loader.io 測試 )<br><br>
   <div align="center">
-    <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test.png" width="470"/>
-    <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test-load-balance.png" width="470" height="318.406"/>
+    <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test.png" width="450"/>
+    <img src="https://github.com/ttiverson3/AWS-S3-CloudFront-RDS/blob/master/imgs/test-load-balance.png" width="450" height="318.406"/>
   </div>
