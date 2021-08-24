@@ -1,6 +1,6 @@
 # AWS-S3-CloudFront-RDS
 ## Demo
-http://test-1783064897.us-east-2.elb.amazonaws.com/
+http://18.116.177.114/
 ## 簡介
 AWS S3 + AWS CloudFront + AWS RDS 雲端服務整合 <br><br>
 ### 1. 簡易的圖片庫 ( 上傳、刪除、下載 )：
